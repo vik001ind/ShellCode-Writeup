@@ -1,8 +1,7 @@
-Hi,
-I'm having trouble with shellcode creation.
-   
-I followed Alephone paper, and created an assembly code for writing in a file:
- 
+
+Write Assembly code for required function of shellcode, string can be accessed by JMP -> CALL which will copy string in stack[1]
+'''
+/* Code for creating a file and writing some content and closing file and exiting */
 void main() {
 __asm__(
 "jmp l1;"
@@ -28,8 +27,8 @@ __asm__(
 ".string \"You lose!\" ;"        
 );
 }
-Above code works fine, and creates file with required text. 
- 
+'''
+
 So, I copied hex representation using gdb.
 (gdb) disas main
 Dump of assembler code for function main:
@@ -133,19 +132,12 @@ Breakpoint 1, main () at ss-c.c:3
    0x80496f8:   add    %al,(%eax)
    0x80496fa:   add    %al,(%eax)
    0x80496fc:   add    %al,(%eax)
-I can't find any issue with the shellcode. 
-Please suggest!
- 
-Thanks!
- 
 
-assignment1
-This private post is only visible to Instructors and Kumar Vikramjeet
-edit·good question06 days ago by Kumar Vikramjeet
-the students' answer,where students collectively construct a single answer
-Click to start off the wiki answer
-the instructors' answer,where instructors collectively construct a single answer
- 
-Try compiling your test code with stack (execution) protections disabled:
- 
+
 gcc -fno-stack-protector -z execstack -o file_name file_name.c
+
+
+
+References 
+[1] http://insecure.org/stf/smashstack.html
+[2]
