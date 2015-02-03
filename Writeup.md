@@ -2,7 +2,9 @@
 Write Assembly code for required function of shellcode, string can be accessed by JMP -> CALL which will copy string in stack[1]
 
 ```
-/* Code for creating a file and writing some content and closing file and exiting */
+/* Code for creating a file and writing some content and closing file and exiting 
+http://www.tutorialspoint.com/assembly_programming/assembly_file_management.htm */
+
 void main() {
 __asm__(
 "jmp l1;"
